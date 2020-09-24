@@ -126,7 +126,24 @@
 					  </div>	
 					<br>
 				     	<center>
-							<button name="save" class="btn btn-primary btn edit">Guardar</button>
+				     		<div class="row">
+
+				     			<div class="col-md-3"></div>
+
+				     			<div class="col-md-3">
+							   
+							        <button name="save" class="btn btn-primary btn edit">Guardar</button>
+				     				
+				     			</div>
+
+				     			<div class="col-md-3">
+							   
+							        
+							        <a name="save" href="profile.php" class="btn btn-danger btn">Cancelar</a>
+				     				
+				     			</div>
+				     			
+				     		</div>
 						</center>
 					<br>
 				<form>
