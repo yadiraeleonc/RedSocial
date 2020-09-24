@@ -17,6 +17,12 @@
 				<button class="btn btn-success">Cambiar Foto de Perfil</button>
 	      </div>
 		  <div class="col-md-10 col-sm-12">
+
+		  	<center>
+				
+				<h2>Editar Información Personal</h2>
+
+			</center>
 				
 				<?php
 					$query = $conn->query("select * from members where member_id = '$session_id'");
