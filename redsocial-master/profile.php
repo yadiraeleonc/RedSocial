@@ -2,6 +2,7 @@
 <?php include('session.php'); ?>    
     <body>
 	<?php include('navbar.php'); ?>
+	<?php include('Banner.php'); ?>
 			<div id="masthead">  
 				<div class="container">
 					<?php include('heading1.php'); ?>
