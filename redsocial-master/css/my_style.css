@@ -63,11 +63,11 @@ footer {
     background: none repeat scroll 0 0 #000000 !important;
 }
 textarea {
-     border: 1px solid;
+    border: 1px solid;
     border-radius: 4px;
-    height: 166px;
+    height: 50px;
     margin-top: 14px;
-    width: 456px !important;
+    width: 100%;
 }
 #span5{
 	width:300px;
@@ -91,8 +91,8 @@ h1,h2,h3,.highlight,.navbar a,#masthead h4 {
     width: 301px;
 }
 .message {
-    border: 1px solid;
-    border-radius: 10px;
+    /* border: 0.2px solid; */
+    border-radius: 30px;
     padding: 10px;
 }
 footer {
