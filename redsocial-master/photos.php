@@ -26,21 +26,56 @@
       
       <div class="panel">
         <div class="panel-body">
-          
-			<h2 id="po">Mis Fotos</h2>
-				<div class="pull-right">
-							<form id="photos"   method="POST" enctype="multipart/form-data">
 
-									<label class="control-label" for="input01">Imagen:</label>
-									
-										<input type="file" name="image" class="font" required>
-									
-								
-						
-								
-										<br><button type="submit" name="submit" class="btn btn-success"><i class="icon-upload"></i> Subir Foto</button>
-								
-							</form>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Compartir Histotia
+</button>
+        	<hr>
+            <center><h2 >Mis Fotos</h2></center>
+
+
+
+				<div class="pull-right">
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Foto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form    method="POST" enctype="multipart/form-data">
+
+		      <div class="modal-body">
+
+		      	
+					<label class="control-label" for="input01">Imagen:</label>
+					
+						<input type="file" name="image" class="font" required>
+										
+						<br>														
+		        
+		      </div>
+		      <div class="modal-footer">
+
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="submit" name="submit" class="btn btn-primary"><i class="icon-upload"></i>Guardar</button>
+		      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+							
 							<?php 
 								if (isset($_POST['submit'])) {
  
@@ -61,29 +96,30 @@
 				</div>
 			
           <div class="row">  		  
+            
             <hr>
-            <hr>
+
 				<?php
-	$query = $conn->query("select * from photos where member_id='$session_id'");
-	while($row = $query->fetch()){
-	$id = $row['photos_id'];
-	?>
+					$query = $conn->query("select * from photos where member_id='$session_id'");
+					while($row = $query->fetch()){
+					$id = $row['photos_id'];
+				?>
+
             <div class="col-md-2 col-sm-3 text-center">
-				<img class="photo" src="<?php echo $row['location']; ?>" >
+
+				<a class="btn btn-danger" href="delete_photos.php<?php echo '?id='.$id; ?>"><i class="icon-remove"></i> Eliminar</a>
+
 				<hr>
-	<a class="btn btn-danger" href="delete_photos.php<?php echo '?id='.$id; ?>"><i class="icon-remove"></i> Eliminar</a>
-            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+				<img class="photo" src="<?php echo $row['location']; ?>" >
+
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 				<?php } ?>
           </div>
           <hr>
                   
-    
-
-
-          
-
-
-          
+             
         </div>
       </div>
                                                                                        
@@ -97,4 +133,11 @@
 <?php include('footer.php'); ?>
         
     </body>
+
+    <script>
+    	
+    	$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+    </script>
 </html>
