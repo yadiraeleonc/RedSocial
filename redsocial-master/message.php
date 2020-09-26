@@ -9,7 +9,6 @@
 				<div class="container">
 					<div class="row">
 					<div class="col-md-12">
-						<div class="top-spacer"> </div>
 					</div>
 					</div> 
 				</div><!-- /cont -->
@@ -23,48 +22,53 @@
           <div class="row">    
             <br>
 
-            <div class="col-md-6 col-sm-3 text-center">
-								<form method="post" id="send_message" action="send_message.php">
-										<div class="control-group">
-											<label>Selecciona tu Contacto:</label>
-                                          <div class="controls">
-                                            <select name="friend_id" class="combo" required>
-											<option></option>
-															<?php
-														$query = $conn->query("select members.member_id , members.firstname , members.lastname , members.image , friends.friends_id   from members  , friends
-	where friends.my_friend_id = '$session_id' and members.member_id = friends.my_id
-	OR friends.my_id = '$session_id' and members.member_id = friends.my_friend_id
-	");
-															while($row = $query->fetch()){
-															$friend_name = $row['firstname']." ".$row['lastname'];
-															$friend_image = $row['image'];
-															$id = $row['member_id'];
-															?>
-                                              	<option value="<?php echo $id; ?>"><?php echo $friend_name; ?></option>
-											<?php } ?>
-                                            </select>
-                                          </div>
-                                        </div>
-								
-							
-										<div class="control-group">
+ 
+
+			<div class="col-md-2 col-sm-3 text-center">
+			<img  src="images/male6.jpg" style="width:100px;height:100px" class="img-circle"></a>
+            </div>
+
+
+
+
+
+			
+            <div class="col-md-10 col-sm-4">
+
+
+
+			<div class="control-group">
 											<label>Tu mensaje:</label>
                                           <div class="controls">
 											<textarea name="my_message" class="my_message" required></textarea>
                                           </div>
-                                        </div>
-										<hr>
-										<div class="control-group">
-                                          <div class="controls">
-												<button  class="btn btn-success"><i class="icon-envelope-alt"></i> Enviar </button>
+										</div>
 
-                                          </div>
-                                        </div>
-                                </form>
+										<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-9">
+				<div class="card">
+					<div class="card-body d-flex justify-content-between align-items-left">
+					
+						<a href="#" class="btn btn-primary btn-sm">Crear</a>
+					<br>
+					<br>
 
-            </div>
-            <div class="col-md-6 col-sm-9">
-             	Bandeja Privada
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+			
+		  </div>
+		  
+
+
+
+
+				<div class="col-md-12 col-sm-3 text-center">
+				<hr>
+				<label>Mensajes:</label>
 				<hr>
 				<?php 
 				$query = $conn->query("select * from message
@@ -76,28 +80,21 @@
 				<div class="mes">
 				<div class="message"><?php echo $row['content']; ?>
 				<hr>
-				<div class="pull-left"><?php echo $row['date_sended']; ?></div>
-				<div class="pull-right">enviado por: <?php echo $row['firstname']." ".$row['lastname']; ?></div>
-
+				<div class="pull-center">enviado por: <?php echo $row['firstname']." ".$row['lastname'];?> a las <?php echo $row['date_sended']; ?></div>
 				<hr>
-				<br>
 				<a href="delete_message.php<?php echo '?id='.$id; ?>" class="btn btn-danger"><i class="icon-remove"></i> Eliminar</a>
 				</div>
 				</div>
 				<?php } ?>
-            </div>
-	
-          </div>
+            		</div>
+
+
           <hr>
         </div>
       </div>
                                                                                        
 	                                                
-                                                      
-   	</div><!--/col-12-->
-  </div>
-</div>
-                                                
+                                      
                                                                                 
 <?php include('footer.php'); ?>
         
