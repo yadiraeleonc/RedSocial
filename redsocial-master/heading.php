@@ -1,30 +1,67 @@
     <div class="row">
       <div class="col-md-2">
 		<hr>
-		<center><img class="pp" src="<?php echo $image; ?>" height="140" width="160"></center>
+		<center><img class="pp img-circle" src="<?php echo $image; ?>" height="140" width="140"></center>
 		<hr>
-		<a class="btn btn-success" href="change_pic.php">Cambiar Foto de Perfil</a>
+		<a class="btn btn-success " href="change_pic.php">Cambiar Foto de Perfil</a>
       </div>
 		<div class="col-md-5">
 			<hr>
-			<p>Información Personal</p>
-				<?php
-			$query = $conn->query("select * from members where member_id = '$session_id'");
-			$row = $query->fetch();
-			$id = $row['member_id'];
+			<center><h2>Información Personal</h2></center>
+
+			<?php
+				$query = $conn->query("select * from members where member_id = '$session_id'");
+				$row = $query->fetch();
+				$id = $row['member_id'];
 			?>
+
 			<hr>
-			<p>Nombre: <?php echo $row['firstname']." ".$row['lastname']; ?><span class="margin-p"> </span>Género: <?php echo $row['gender']; ?></p>
-			<hr>
-			<p>Dirección: <?php echo $row['address']; ?></p>
+			<div class="row">
+				
+				<div class="form-group col-md-4">
+				    <label for="Nombre">Nombre</label>
+				    <input type="email" class="form-control" id="Nombre" aria-describedby="emailHelp" title="Nombre" value="<?php echo $row['firstname']." ".$row['lastname']; ?>"
+				    readonly>
+				    
+				</div>
+
+				<div class="form-group col-md-3">
+				    <label for="Genero">Género</label>
+				    <input type="email" class="form-control" id="Genero" aria-describedby="emailHelp" title="Genero" value="<?php echo $row['gender']; ?>"
+				    readonly>
+				    
+				</div>
+
+				<div class="form-group col-md-5">
+				    <label for="Direccion">Dirección</label>
+				    <input type="email" class="form-control" id="Direccion" aria-describedby="emailHelp" title="Direccion" value="<?php echo $row['address']; ?>"
+				    readonly>
+				    
+				</div>
+
+			</div>	
+
 			<hr>
 		</div>
       <div class="col-md-5">
 			<form method="post" action="post.php">
-						<textarea name="content" placeholder="Haz tus comentarios aquí"></textarea>
-						<br>
-						<hr>
-						<button class="btn btn-success"><i class="icon-share"></i> Compartir </button>
+
+				    <div class="row">
+				    	
+				    	<br>
+				    	<div class="form-group col-md-5">
+
+						    <label for="Comentarios">Comentario</label>
+						    <textarea name="content" class="form-control" id="Comentarios" title="Haz tus comentarios aquí" placeholder="Haz tus comentarios aquí" rows="6">
+						    </textarea>	
+						 				    
+				        </div>
+
+				    </div>
+
+				    <button class="btn btn-success"><i class="icon-share"></i> Compartir </button>	
+						
+						
 			</form>
       </div>
     </div> 
