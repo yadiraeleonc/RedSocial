@@ -40,7 +40,7 @@
 			<div class="control-group">
 											<label>Tu mensaje:</label>
                                           <div class="controls">
-											<textarea name="my_message" class="my_message" required></textarea>
+											<textarea name="my_message" class="my_message" placeholder="Escribe a tus amigos ♥" required></textarea>
                                           </div>
 										</div>
 
