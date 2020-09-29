@@ -1,6 +1,6 @@
         
-        <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-  <div class="container">
+        <header class="navbar  navbar-fixed-top" role="banner" style="background:black">
+  <div class="container" >
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
