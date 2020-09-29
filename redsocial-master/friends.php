@@ -21,7 +21,7 @@
         <div class="panel-body">
           <!--/stories-->
           <div class="row">    
-            <br>
+
 				<?php
 	$query = $conn->query("select members.member_id , members.firstname , members.lastname , members.image , friends.friends_id   from members  , friends
 	where friends.my_friend_id = '$session_id' and members.member_id = friends.my_id
@@ -32,25 +32,30 @@
 	$friend_image = $row['image'];
 	$id = $row['friends_id'];
 	?><div class="row">    
-            <div class="col-md-2 text-center">
-             <img  src="<?php echo $friend_image; ?>" style="width:100px;height:100px" class="img-circle"></a>
+            <div class="col-md-2 col-sm-7 text-center">
+             <img  src="<?php echo $friend_image; ?>" style="width:50px;height:50px" class="img-circle"></a>
             </div>
 				<div class="col-md-10">
-					<div class="pull-right"><a href="delete_friend.php<?php echo '?id='.$id; ?>" class="btn btn-danger"><i class="icon-remove"></i>  No es mi amigo </a></div>
+					<div class="pull-right"><a href="delete_friend.php<?php echo '?id='.$id; ?>" class="btn btn-danger"><i class="icon-remove"></i>  Eliminar </a></div>
 					<div class="alert"><?php echo $friend_name; ?></div>
 				</div>
+				
             </div>
 			<hr>
 			<br><br>
+			
+		
 	<?php } ?>		
           </div>
           <hr>
-        </div>
+		</div>
+		
       </div>
-                                                                                       
+                                                                                 
 	                                                
                                                       
-   	</div><!--/col-12-->
+	   </div><!--/col-12-->
+	   
   </div>
 </div>
                                                                                                              
